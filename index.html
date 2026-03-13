@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brow Royale - Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Brow Royale</h1>
+    <div class="video-wrapper">
+      <video id="webcam" autoplay playsinline></video>
+      <canvas id="overlay"></canvas>
+      <canvas id="freehandCanvas"></canvas>
+      <div id="statusBadge" class="status-badge">Click "Start Camera" to begin</div>
+      <button id="doneBtn" class="done-btn hidden">Done</button>
+    </div>
+
+    <!-- Top controls -->
+    <div class="controls">
+      <button id="startBtn">Start Camera</button>
+      <button id="stopBtn" disabled>Stop Camera</button>
+      <label><input type="checkbox" id="showLandmarks"> Landmarks</label>
+    </div>
+
+    <!-- Tab bar -->
+    <div class="tab-bar">
+      <button class="tab active" data-tab="shape">Shape</button>
+      <button class="tab" data-tab="draw">Draw</button>
+      <button class="tab" data-tab="sticker">Sticker</button>
+      <button class="tab" data-tab="adjust">Adjust</button>
+    </div>
+
+    <!-- Shape tab -->
+    <div class="tab-content active" id="tab-shape">
+      <div class="shape-row">
+        <button class="shape-btn active" data-shape="natural">Natural</button>
+        <button class="shape-btn" data-shape="arch">Arch</button>
+        <button class="shape-btn" data-shape="straight">Straight</button>
+        <button class="shape-btn" data-shape="rounded">Rounded</button>
+        <button class="shape-btn" data-shape="sharp">Sharp</button>
+      </div>
+    </div>
+
+    <!-- Draw (freehand) tab -->
+    <div class="tab-content" id="tab-draw">
+      <div class="draw-row">
+        <span>Draw directly on eyebrows above</span>
+        <label>Size: <input type="range" id="freehandSize" min="1" max="30" value="8"></label>
+        <button id="clearFreehand" class="small-btn danger">Clear</button>
+      </div>
+    </div>
+
+    <!-- Sticker tab -->
+    <div class="tab-content" id="tab-sticker">
+      <div class="shape-row">
+        <button class="sticker-btn" data-sticker="bold">Bold</button>
+        <button class="sticker-btn" data-sticker="feather">Feather</button>
+        <button class="sticker-btn" data-sticker="tapered">Tapered</button>
+        <button class="sticker-btn" data-sticker="micro">Micro</button>
+        <button class="sticker-btn" data-sticker="brushed">Brushed</button>
+      </div>
+    </div>
+
+    <!-- Adjust tab -->
+    <div class="tab-content" id="tab-adjust">
+      <div class="slider-row">
+        <label>Thickness <input type="range" id="thickness" min="3" max="25" value="10" step="0.1"></label>
+        <label>Arch <input type="range" id="archHeight" min="-10" max="20" value="0" step="0.5"></label>
+        <label>Pos Y <input type="range" id="offsetY" min="-30" max="30" value="0" step="0.5"></label>
+        <label>Opacity <input type="range" id="opacity" min="20" max="100" value="75"></label>
+      </div>
+    </div>
+
+    <!-- Color palette -->
+    <div class="color-row">
+      <div class="color-dot active" data-color="#1A1A1A" style="background:#1A1A1A"></div>
+      <div class="color-dot" data-color="#4A2C0A" style="background:#4A2C0A"></div>
+      <div class="color-dot" data-color="#8B5E3C" style="background:#8B5E3C"></div>
+      <div class="color-dot" data-color="#D4A853" style="background:#D4A853"></div>
+      <div class="color-dot" data-color="#6B3FA0" style="background:#6B3FA0"></div>
+      <div class="color-dot" data-color="#B03060" style="background:#B03060"></div>
+      <div class="color-dot" data-color="#8B0000" style="background:#8B0000"></div>
+      <div class="color-dot" data-color="#37474F" style="background:#37474F"></div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
